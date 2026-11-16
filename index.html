@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple dashboard for managing student profiles.">
+  <title>Student Profile Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <a href="#dashboard" aria-label="Student Profile home">Student Profile</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#student-form">Add Student</a>
+      <a href="#student-list">Student Profiles</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard" aria-labelledby="page-title">
+      <h1 id="page-title">Student Profile Management</h1>
+      <p>Keep personal, academic, and career information organized in one place.</p>
+    </section>
+
+    <section id="student-form" aria-labelledby="form-title">
+      <h2 id="form-title">Add a Student Profile</h2>
+      <p>Fields marked with <span aria-hidden="true">*</span> are required.</p>
+
+      <form id="profile-form">
+        <input type="hidden" id="student-record-id" name="recordId">
+
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <div>
+            <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="full-name" name="fullName" autocomplete="name" required>
+          </div>
+
+          <div>
+            <label for="profile-photo">Profile Photo</label>
+            <input type="file" id="profile-photo" name="profilePhoto" accept="image/*">
+            <img id="photo-preview" alt="Profile photo preview" hidden>
+          </div>
+
+          <div>
+            <label for="date-of-birth">Date of Birth</label>
+            <input type="date" id="date-of-birth" name="dateOfBirth" autocomplete="bday">
+          </div>
+
+          <div>
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option value="">Select an option</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="non-binary">Non-binary</option>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+              <option value="self-describe">Prefer to self-describe</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+
+          <div>
+            <label for="mobile-number">Mobile Number <span aria-hidden="true">*</span></label>
+            <input type="tel" id="mobile-number" name="mobileNumber" autocomplete="tel" required>
+          </div>
+
+          <div>
+            <label for="father-name">Father's Name</label>
+            <input type="text" id="father-name" name="fatherName">
+          </div>
+
+          <div>
+            <label for="mother-name">Mother's Name</label>
+            <input type="text" id="mother-name" name="motherName">
+          </div>
+
+          <div>
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3" autocomplete="street-address"></textarea>
+          </div>
+
+          <div>
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" autocomplete="address-level2">
+          </div>
+
+          <div>
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" autocomplete="address-level1">
+          </div>
+
+          <div>
+            <label for="pin-code">PIN Code</label>
+            <input type="text" id="pin-code" name="pinCode" inputmode="numeric" autocomplete="postal-code">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Academic Information</legend>
+
+          <div>
+            <label for="student-id">Student ID / Roll Number <span aria-hidden="true">*</span></label>
+            <input type="text" id="student-id" name="studentId" required>
+          </div>
+
+          <div>
+            <label for="college-name">College Name</label>
+            <input type="text" id="college-name" name="collegeName">
+          </div>
+
+          <div>
+            <label for="university-name">University Name</label>
+            <input type="text" id="university-name" name="universityName">
+          </div>
+
+          <div>
+            <label for="degree">Degree / Course</label>
+            <input type="text" id="degree" name="degree">
+          </div>
+
+          <div>
+            <label for="department">Department / Branch</label>
+            <input type="text" id="department" name="department">
+          </div>
+
+          <div>
+            <label for="current-semester">Current Semester</label>
+            <input type="text" id="current-semester" name="currentSemester">
+          </div>
+
+          <div>
+            <label for="academic-year">Academic Year</label>
+            <input type="text" id="academic-year" name="academicYear" placeholder="For example, 2026–2027">
+          </div>
+
+          <div>
+            <label for="admission-year">Admission Year</label>
+            <input type="number" id="admission-year" name="admissionYear" min="1900" max="2100" step="1">
+          </div>
+
+          <div>
+            <label for="grade">CGPA / Percentage</label>
+            <input type="text" id="grade" name="grade" placeholder="For example, 8.5 CGPA or 85%">
+          </div>
+
+          <div>
+            <label for="graduation-year">Graduation Year</label>
+            <input type="number" id="graduation-year" name="graduationYear" min="1900" max="2100" step="1">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Skills and Career Information</legend>
+
+          <div>
+            <label for="technical-skills">Technical Skills</label>
+            <textarea id="technical-skills" name="technicalSkills" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="programming-languages">Programming Languages</label>
+            <textarea id="programming-languages" name="programmingLanguages" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="frameworks">Frameworks</label>
+            <textarea id="frameworks" name="frameworks" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="database-technologies">Database Technologies</label>
+            <textarea id="database-technologies" name="databaseTechnologies" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="tools-technologies">Tools and Technologies</label>
+            <textarea id="tools-technologies" name="toolsTechnologies" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="soft-skills">Soft Skills</label>
+            <textarea id="soft-skills" name="softSkills" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="career-objective">Career Objective</label>
+            <textarea id="career-objective" name="careerObjective" rows="4"></textarea>
+          </div>
+
+          <div>
+            <label for="areas-of-interest">Areas of Interest</label>
+            <textarea id="areas-of-interest" name="areasOfInterest" rows="3"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Additional Information</legend>
+
+          <div>
+            <label for="hobbies">Hobbies</label>
+            <textarea id="hobbies" name="hobbies" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="certifications">Certifications</label>
+            <textarea id="certifications" name="certifications" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="projects">Projects</label>
+            <textarea id="projects" name="projects" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="internship-experience">Internship Experience</label>
+            <textarea id="internship-experience" name="internshipExperience" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="achievements">Achievements</label>
+            <textarea id="achievements" name="achievements" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label for="linkedin-profile">LinkedIn Profile</label>
+            <input type="url" id="linkedin-profile" name="linkedinProfile" placeholder="https://">
+          </div>
+
+          <div>
+            <label for="github-profile">GitHub Profile</label>
+            <input type="url" id="github-profile" name="githubProfile" placeholder="https://">
+          </div>
+
+          <div>
+            <label for="portfolio-website">Portfolio Website</label>
+            <input type="url" id="portfolio-website" name="portfolioWebsite" placeholder="https://">
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit" id="save-profile-button">Save Student Profile</button>
+          <button type="reset" id="clear-form-button">Clear Form</button>
+        </div>
+      </form>
+
+      <p id="form-message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="student-list" aria-labelledby="student-list-title">
+      <h2 id="student-list-title">Student Profiles</h2>
+      <p id="empty-state">No student profiles have been added yet.</p>
+      <div id="student-cards" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Student Profile Management</p>
+  </footer>
+</body>
+</html>
